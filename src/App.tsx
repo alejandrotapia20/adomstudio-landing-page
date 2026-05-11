@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import {
   CheckCircle2,
   CalendarCheck,
@@ -13,27 +12,7 @@ import {
   MapPin,
 } from "lucide-react";
 
-export const Route = createFileRoute("/")({
-  component: Landing,
-  head: () => ({
-    meta: [
-      { title: "AdomStudio — Captación de pacientes para clínicas dentales" },
-      {
-        name: "description",
-        content:
-          "AdomStudio diseña sistemas de captación de pacientes para clínicas dentales: más agendas llenas, menos huecos, crecimiento predecible.",
-      },
-      { property: "og:title", content: "AdomStudio — Más pacientes para tu clínica dental" },
-      {
-        property: "og:description",
-        content:
-          "Sistemas de marketing y agendamiento que llenan tu agenda con pacientes cualificados.",
-      },
-    ],
-  }),
-});
-
-function Landing() {
+export default function App() {
   return (
     <div className="min-h-screen bg-background text-foreground font-sans">
       <Nav />
@@ -123,11 +102,7 @@ function Hero() {
             </a>
           </div>
           <div className="mt-10 flex flex-wrap gap-6 text-sm text-muted-foreground">
-            {[
-              "Sin permanencia",
-              "Resultados en 30 días",
-              "Atención personalizada",
-            ].map((t) => (
+            {["Sin permanencia", "Resultados en 30 días", "Atención personalizada"].map((t) => (
               <div key={t} className="flex items-center gap-2">
                 <CheckCircle2 className="h-4 w-4 text-mint" />
                 {t}
@@ -245,44 +220,18 @@ function Problem() {
 
 function Services() {
   const services = [
-    {
-      icon: Target,
-      title: "Campañas publicitarias",
-      desc: "Anuncios en Meta y Google diseñados específicamente para tratamientos dentales de alto valor.",
-    },
-    {
-      icon: Users,
-      title: "Embudos de captación",
-      desc: "Páginas y formularios optimizados que convierten visitas en solicitudes reales de cita.",
-    },
-    {
-      icon: CalendarCheck,
-      title: "Agendamiento automático",
-      desc: "Sistema que confirma, recuerda y reduce las ausencias de tus pacientes en piloto automático.",
-    },
-    {
-      icon: TrendingUp,
-      title: "Analítica y optimización",
-      desc: "Dashboards claros para que sepas exactamente cuánto te cuesta cada paciente nuevo.",
-    },
-    {
-      icon: ShieldCheck,
-      title: "Reputación online",
-      desc: "Gestión de reseñas en Google para que seas la clínica más recomendada de tu zona.",
-    },
-    {
-      icon: Sparkles,
-      title: "Branding clínico",
-      desc: "Identidad visual moderna que transmite confianza y profesionalidad desde el primer click.",
-    },
+    { icon: Target, title: "Campañas publicitarias", desc: "Anuncios en Meta y Google diseñados específicamente para tratamientos dentales de alto valor." },
+    { icon: Users, title: "Embudos de captación", desc: "Páginas y formularios optimizados que convierten visitas en solicitudes reales de cita." },
+    { icon: CalendarCheck, title: "Agendamiento automático", desc: "Sistema que confirma, recuerda y reduce las ausencias de tus pacientes en piloto automático." },
+    { icon: TrendingUp, title: "Analítica y optimización", desc: "Dashboards claros para que sepas exactamente cuánto te cuesta cada paciente nuevo." },
+    { icon: ShieldCheck, title: "Reputación online", desc: "Gestión de reseñas en Google para que seas la clínica más recomendada de tu zona." },
+    { icon: Sparkles, title: "Branding clínico", desc: "Identidad visual moderna que transmite confianza y profesionalidad desde el primer click." },
   ];
   return (
     <section id="servicios" className="py-20 md:py-28 bg-secondary/40">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center max-w-3xl mx-auto">
-          <span className="text-xs uppercase tracking-widest font-semibold text-mint">
-            Servicios
-          </span>
+          <span className="text-xs uppercase tracking-widest font-semibold text-mint">Servicios</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-primary">
             Un sistema completo, no piezas sueltas
           </h2>
@@ -311,34 +260,16 @@ function Services() {
 
 function Process() {
   const steps = [
-    {
-      n: "01",
-      title: "Diagnóstico gratuito",
-      desc: "Analizamos tu clínica, competencia y oportunidades reales en tu zona.",
-    },
-    {
-      n: "02",
-      title: "Estrategia a medida",
-      desc: "Diseñamos campañas, embudos y mensajes para los tratamientos que más te interesan.",
-    },
-    {
-      n: "03",
-      title: "Lanzamiento en 7 días",
-      desc: "Activamos el sistema y empezamos a generar solicitudes de cita cualificadas.",
-    },
-    {
-      n: "04",
-      title: "Optimización continua",
-      desc: "Medimos, ajustamos y escalamos lo que funciona mes tras mes.",
-    },
+    { n: "01", title: "Diagnóstico gratuito", desc: "Analizamos tu clínica, competencia y oportunidades reales en tu zona." },
+    { n: "02", title: "Estrategia a medida", desc: "Diseñamos campañas, embudos y mensajes para los tratamientos que más te interesan." },
+    { n: "03", title: "Lanzamiento en 7 días", desc: "Activamos el sistema y empezamos a generar solicitudes de cita cualificadas." },
+    { n: "04", title: "Optimización continua", desc: "Medimos, ajustamos y escalamos lo que funciona mes tras mes." },
   ];
   return (
     <section id="proceso" className="py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center max-w-3xl mx-auto">
-          <span className="text-xs uppercase tracking-widest font-semibold text-mint">
-            Proceso
-          </span>
+          <span className="text-xs uppercase tracking-widest font-semibold text-mint">Proceso</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-primary">
             De cero a agenda llena en 30 días
           </h2>
@@ -371,9 +302,7 @@ function Results() {
       <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-mint/20 blur-3xl" />
       <div className="mx-auto max-w-7xl px-6 relative">
         <div className="max-w-2xl">
-          <span className="text-xs uppercase tracking-widest font-semibold text-mint">
-            Resultados
-          </span>
+          <span className="text-xs uppercase tracking-widest font-semibold text-mint">Resultados</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">
             Números que hablan por sí solos
           </h2>
@@ -397,42 +326,22 @@ function Results() {
 
 function Testimonials() {
   const items = [
-    {
-      quote:
-        "Pasamos de tener 5 huecos diarios a una agenda completa con lista de espera. El equipo entiende perfectamente el sector dental.",
-      name: "Dra. Marta Ruiz",
-      role: "Directora, Clínica SonrisaPlus",
-    },
-    {
-      quote:
-        "En tres meses recuperamos la inversión del año. Los pacientes llegan informados y deciden mucho más rápido.",
-      name: "Dr. Javier León",
-      role: "Fundador, Dental Vida",
-    },
-    {
-      quote:
-        "El sistema de recordatorios redujo nuestras ausencias en un 60%. Por fin podemos planificar el mes con tranquilidad.",
-      name: "Lucía Fernández",
-      role: "Gerente, OrtoNova",
-    },
+    { quote: "Pasamos de tener 5 huecos diarios a una agenda completa con lista de espera. El equipo entiende perfectamente el sector dental.", name: "Dra. Marta Ruiz", role: "Directora, Clínica SonrisaPlus" },
+    { quote: "En tres meses recuperamos la inversión del año. Los pacientes llegan informados y deciden mucho más rápido.", name: "Dr. Javier León", role: "Fundador, Dental Vida" },
+    { quote: "El sistema de recordatorios redujo nuestras ausencias en un 60%. Por fin podemos planificar el mes con tranquilidad.", name: "Lucía Fernández", role: "Gerente, OrtoNova" },
   ];
   return (
     <section className="py-20 md:py-28">
       <div className="mx-auto max-w-7xl px-6">
         <div className="text-center max-w-3xl mx-auto">
-          <span className="text-xs uppercase tracking-widest font-semibold text-mint">
-            Testimonios
-          </span>
+          <span className="text-xs uppercase tracking-widest font-semibold text-mint">Testimonios</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-primary">
             Clínicas reales, resultados reales
           </h2>
         </div>
         <div className="mt-14 grid md:grid-cols-3 gap-6">
           {items.map((t) => (
-            <figure
-              key={t.name}
-              className="rounded-2xl bg-card border border-border p-6 flex flex-col"
-            >
+            <figure key={t.name} className="rounded-2xl bg-card border border-border p-6 flex flex-col">
               <div className="text-mint text-2xl leading-none">&ldquo;</div>
               <blockquote className="mt-2 text-sm text-foreground leading-relaxed flex-1">
                 {t.quote}
@@ -451,30 +360,16 @@ function Testimonials() {
 
 function FAQ() {
   const faqs = [
-    {
-      q: "¿En cuánto tiempo veré resultados?",
-      a: "Las primeras solicitudes de cita suelen llegar en los primeros 7-14 días desde el lanzamiento del sistema.",
-    },
-    {
-      q: "¿Trabajáis con clínicas pequeñas?",
-      a: "Sí. Adaptamos el sistema al tamaño y capacidad de tu clínica para no saturar tu agenda.",
-    },
-    {
-      q: "¿Qué inversión publicitaria necesito?",
-      a: "Recomendamos un mínimo desde 600€/mes en anuncios, pero lo definimos juntos según tus objetivos.",
-    },
-    {
-      q: "¿Hay permanencia?",
-      a: "No. Trabajamos mes a mes. Si no estás satisfecho, puedes parar cuando quieras.",
-    },
+    { q: "¿En cuánto tiempo veré resultados?", a: "Las primeras solicitudes de cita suelen llegar en los primeros 7-14 días desde el lanzamiento del sistema." },
+    { q: "¿Trabajáis con clínicas pequeñas?", a: "Sí. Adaptamos el sistema al tamaño y capacidad de tu clínica para no saturar tu agenda." },
+    { q: "¿Qué inversión publicitaria necesito?", a: "Recomendamos un mínimo desde 600€/mes en anuncios, pero lo definimos juntos según tus objetivos." },
+    { q: "¿Hay permanencia?", a: "No. Trabajamos mes a mes. Si no estás satisfecho, puedes parar cuando quieras." },
   ];
   return (
     <section id="faq" className="py-20 md:py-28 bg-secondary/40">
       <div className="mx-auto max-w-3xl px-6">
         <div className="text-center">
-          <span className="text-xs uppercase tracking-widest font-semibold text-mint">
-            Preguntas frecuentes
-          </span>
+          <span className="text-xs uppercase tracking-widest font-semibold text-mint">Preguntas frecuentes</span>
           <h2 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight text-primary">
             Resolvemos tus dudas
           </h2>
